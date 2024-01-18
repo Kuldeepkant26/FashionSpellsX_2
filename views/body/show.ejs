@@ -1,0 +1,128 @@
+<% layout('../layouts/boilerplate') %>
+
+    <body>
+        <a href="/home" id="back"><i class="ri-arrow-left-s-line"></i>Back</a>
+        <div class="scard">
+            <img src="<%= listing.image.url%>" alt="">
+            <div class="info">
+                <h2 class="oname">
+                    <%= listing.title %>
+                </h2>
+                <hr>
+                <p class="mini">
+                    Description:
+                </p>
+                <p>
+                    <%= listing.desc %>
+                </p>
+                <p>
+                    cetegory:<%= listing.occasion %>
+                </p>
+                <p class="owner">Suggested by: <%= listing.owner && listing.owner.username ? listing.owner.username
+                        : 'Kuldeep' %>
+                </p>
+
+
+                <p class="price">
+                    &#8377;<%= listing.price.toLocaleString('en-IN') %>
+                </p>
+                <p class="mini" style="color: black;">
+                    please select a size:
+                </p>
+                <div class="size-selector">
+                    <div class="size-button">S</div>
+                    <div class="size-button">M</div>
+                    <div class="size-button">L</div>
+                    <div class="size-button">XL</div>
+                </div>
+                <div class="button_cont">
+                    <a href="<%= listing.blink %>" target="_blank" class="buynow">Buy Now</a>
+
+                    <% if(currUser &&listing.owner &&currUser.username==listing.owner.username ){ %>
+                        <div class="ed">
+                            <a href="/edit/<%= listing._id %>" class="edit">Edit</a>
+                            <a href="/delete/<%= listing._id %>" class="delete">Delete</a>
+                        </div>
+                        <% } %>
+
+                </div>
+                <form action="/review/<%= listing._id %>" method="post" class="addform" id="rform">
+                    <h4>Leave a Review</h4>
+                    <fieldset class="starability-slot">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                            aria-label="No rating." required />
+                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                    <input type="text" name="comment" required placeholder="comment">
+                    <button type="submit">Add review</button>
+                </form>
+                <h4>All reviews</h4>
+                <div class="review_cont">
+                    <% for(review of listing.reviews){ %>
+                        <div class="review_box">
+                            <% if(review.owner){ %>
+                                <p id="owner"><i class="ri-user-5-fill"></i>
+                                    <%= review.owner.username%>
+                                </p>
+                                <% } %>
+                                    <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                                    <p>
+                                        <%= review.comment %> .
+                                    </p>
+                                    </p>
+                                    <% if(currUser&&review.owner &&review.owner.username===currUser.username ){ %>
+                                        <a href="/review/delete/<%= review._id %>/<%= listing._id %>">Delete</a>
+                                        <% } %>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+        <h4>You may also like </h4>
+        <div class="scrollbar">
+            <% for(Nlisting of Nlistings){ %>
+                <a href="/show/<%= Nlisting._id %>">
+                    <div class="card">
+                        <img src="<%= Nlisting.image.url%>" alt="Product Image">
+                        <div class="card-info">
+                            <h2 class="card-title">
+                                <%= Nlisting.title %>
+                            </h2>
+                            <p class="card-price">
+                                &#8377;<%= Nlisting.price.toLocaleString('en-IN') %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+        <h4>Accessories</h4>
+        <div class="scrollbar">
+            <% for(Nlisting of Nlistings){ %>
+                <% if(Nlisting.occasion=="accessories" ){ %>
+                    <a href="/show/<%= Nlisting._id %>">
+                        <div class="card">
+                            <img src="<%= Nlisting.image.url %>" alt="Product Image">
+                            <div class="card-info">
+                                <h2 class="card-title">
+                                    <%= Nlisting.title %>
+                                </h2>
+                                <p class="card-price">
+                                    &#8377;<%= Nlisting.price.toLocaleString('en-IN') %>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% } %>
+                        <% } %>
+        </div>
+    </body>

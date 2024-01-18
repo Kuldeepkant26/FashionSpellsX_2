@@ -1,0 +1,107 @@
+/* Basic reset for styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cards {
+    display: flex;
+    background-color: var(--background-color);
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.card {
+    width: 200px;
+    height: 309px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+
+
+/* Style for the product image */
+.card img {
+    mix-blend-mode: darken;
+    
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    height: 76%;
+    object-fit: contain;
+
+}
+
+/* Zoom effect on hover */
+.card:hover img {
+    transform: scale(1.1);
+    /* Zoom in effect */
+}
+
+
+
+/* Style for the card information section */
+.card-info {
+    padding: 10px;
+}
+
+/* Style for the product title */
+.card-title {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* Style for the product price */
+.card-price {
+    font-size: 0.9rem;
+    color: #d35252;
+}
+
+
+
+
+@media (max-width:700px) {
+    #mh3 {
+        margin-left: 43.5vw;
+        animation: sunrise 1s ease 1.5s 1 forwards;
+        transform: translateY(100%);
+        font-size: 3vw;
+    }
+
+    .sec1 {
+        padding-bottom: 2rem;
+    }
+    .cards{
+        padding: 0px;
+        gap: 0px;
+        justify-content: space-evenly;
+    }
+    .card {
+        width: 183px;
+        height: 309px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 2px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .card-title {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    .card-price {
+        font-size: 0.9rem;
+        color: #d35252;
+    }
+}
+

@@ -1,0 +1,19 @@
+<body>
+    <div class="scrollbar">
+        <% for(listing of listings){ %>
+            <a href="/show/<%= listing._id %>">
+                <div class="card">
+                    <img src="<%= listing.image %>" alt="Product Image">
+                    <div class="card-info">
+                        <h2 class="card-title">
+                            <%= listing.title %>
+                        </h2>
+                        <p class="card-price">
+                            <%= listing.price%>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <% } %>
+    </div>
+</body>

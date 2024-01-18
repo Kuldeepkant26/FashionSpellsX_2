@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <div class="logo">
+        <a href="/home"><img src="/images/logo2.png" alt="" class="logo"></a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/add" id="add">Add Spells</a></li>
+        <% if(!currUser){ %>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/login">Login</a></li>
+            <% } %>
+                <% if(currUser){ %>
+                    <li><a href="/logout">Logout</a></li>
+                    <% } %>
+    </ul>
+    <div class="burger">
+        <div class="line1 line"></div>
+        <div class="line2 line"></div>
+        <div class="line3 line"></div>
+    </div>
+</nav>

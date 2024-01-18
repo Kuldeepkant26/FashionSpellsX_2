@@ -1,0 +1,57 @@
+.ctgrys {
+    width: 30%;
+    
+    border-radius: 90px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: visible;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Keep items in a single line */
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.ctgrys::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.ctgry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    opacity: 0.6;
+    cursor: pointer;
+   
+}
+.ctgry .fa-solid{
+  transform: scale(1.6);
+}
+
+.ctgrys a {
+    color: rgb(58, 56, 56);
+    color: var(--accent-color);
+}
+
+.ctgry:hover {
+    opacity: 1;
+}
+
+@media (max-width:700px) {
+    .ctgrys {
+        width: 90%;
+
+    }
+}

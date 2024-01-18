@@ -1,0 +1,14 @@
+.scrollbar {
+    width: 100%;
+    display: flex;
+
+    overflow-x: scroll;
+    white-space: nowrap;
+    /* Additional styles for responsiveness */
+    max-width: 100%;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 10px;
+    /* Optional: Adjust padding as needed */
+    box-sizing: border-box;
+}

@@ -1,0 +1,81 @@
+.addform {
+  max-width: 350px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 2rem;
+}
+
+#cross {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  color: var(--accent-color);
+}
+
+.addform h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+/* Style for form elements */
+.addform input[type="text"],
+.addform input[type="number"],
+.addform input[type="password"],
+.addform input[type="file"],
+.addform select,
+.addform textarea {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+  margin-bottom: 15px;
+}
+
+/* Style for submit button */
+.addform button[type="submit"] {
+  padding: 10px 15px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for select label */
+.addform label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style for textarea */
+.addform textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+  margin-bottom: 15px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.addform textarea::-webkit-scrollbar {
+  display: none;
+}
+
+#rform{
+  margin-left: 0px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#rform input[type="text"]{
+ mix-blend-mode: darken;
+}
+#rform h4{
+  margin-left: 0px;
+  font-size: medium;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
