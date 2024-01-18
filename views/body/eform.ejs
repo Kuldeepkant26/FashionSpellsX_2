@@ -5,9 +5,9 @@
             <h3>Edit outfit info</h3>
             <a href="/home" id="cross"><i class="ri-close-line"></i></a>
             <label style="color: rgba(135, 108, 108, 0.841);" for="title">Edit title :</label>
-            <input type="text" name="title" id="title" value="<%= listing.title %>"><br>
+            <input type="text" name="title" id="title" value="<%= listing.title %>"  required><br>
             <label style="color: rgba(135, 108, 108, 0.841);" for="price">Edit price :</label>
-            <input type="number" id="price" name="price" value="<%= listing.price %>"><br>
+            <input type="number" id="price" name="price" value="<%= listing.price %>" required><br>
            
             <label style="color: rgba(135, 108, 108, 0.841);" for="gender">This outfit is for : </label>
             <select name="gender" id="gender">
@@ -26,8 +26,8 @@
                 <option value="winter" <%=listing.occasion==="winter" ? "selected" : "" %>>Winter</option>
             </select><br>
 
-            <input type="text" name="blink" value="<%= listing.blink%>"><br>
-            <textarea name="desc" id="" cols="" rows="5"><%= listing.desc%></textarea>
+            <input type="text" name="blink" value="<%= listing.blink%>" required><br>
+            <textarea name="desc" id="" cols="" rows="5" required><%= listing.desc%></textarea>
             <button type="submit">Submit</button>
         </form>
     </body>

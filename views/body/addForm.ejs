@@ -3,11 +3,11 @@
     <body>
         <form action="/add" method="post" class="addform" enctype="multipart/form-data">
             <h3>Fillup outfit details</h3>
-            <a href="/home" id="cross"><i class="ri-close-line"></i></a>
-            <input type="text" name="title" placeholder="Enter title"><br>
-            <input type="number" name="price" placeholder="Enter price"><br>
+            <a href="/home" id="cross"><i class="ri-close-line" ></i></a>
+            <input type="text" name="title" placeholder="Enter title" required><br>
+            <input type="number" name="price" placeholder="Enter price" required><br>
             <!-- <input type="text" name="image" placeholder="paste image link"><br> -->
-            <input type="file" name="image" placeholder="Upload outfit"><br>
+            <input type="file" name="image" placeholder="Upload outfit" required><br>
             <label for="gender">This outfit is for : </label>
             <select name="gender" id="gender">
                 <option value="male">Male</option>
@@ -23,8 +23,8 @@
                 <option value="summer">Summer</option>
                 <option value="winter">Winter</option>
             </select><br>
-            <input type="text" name="blink" placeholder="Buy link"><br>
-            <textarea name="desc" id="" cols="" rows="5" placeholder="Your review & outfit desecription"></textarea>
+            <input type="text" name="blink" placeholder="Buy link" required><br>
+            <textarea name="desc" id="" cols="" rows="5" placeholder="Your review & outfit desecription" required></textarea>
             <button type="submit">Submit</button>
         </form>
     </body>
