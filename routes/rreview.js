@@ -23,6 +23,7 @@ router.post("/review/:id", isLogedIn,wrapasync(async (req, res) => {
   listing.reviews.push(r1);
   await listing.save();
   await r1.save();
+  req.flash("success", "Review Added");
   res.redirect(`/show/${id}`);
 }));
 router.get(

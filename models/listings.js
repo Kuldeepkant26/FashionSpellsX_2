@@ -6,8 +6,8 @@ const listingSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    url:String,
-    filename:String,
+    url: String,
+    filename: String,
   },
   gender: {
     type: String,
@@ -35,10 +35,10 @@ const listingSchema = new mongoose.Schema({
       ref: "Reviews",
     },
   ],
-  owner:{
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-  }
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Listing", listingSchema);
