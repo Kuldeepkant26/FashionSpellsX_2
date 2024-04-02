@@ -10,8 +10,8 @@ const User = require("../models/users");
 const ExpressError = require("../utils/ExpressError");
 const wrapasync = require("../utils/wrapasync");
 const { isLogedIn } = require("../utils/middlewares");
-const multer  = require('multer');
-const {storage}=require("../cloudConfig.js");
+const multer = require('multer');
+const { storage } = require("../cloudConfig.js");
 
 const upload = multer({ storage })
 
@@ -32,13 +32,13 @@ router.post(
   isLogedIn,
   upload.single('image'),
   wrapasync(async (req, res) => {
-    let url=req.file.path;
-    let filename=req.file.filename;
+    let url = req.file.path;
+    let filename = req.file.filename;
     let { title, gender, occasion, price, image, blink, desc } = req.body;
     if (
       !req.body.title ||
       !req.body.desc ||
-      
+
       !req.body.price ||
       !req.body.gender ||
       !req.body.occasion ||
@@ -51,12 +51,12 @@ router.post(
       gender: gender,
       occasion: occasion,
       price: price,
-      
+
       blink: blink,
       desc: desc,
     });
     l1.owner = req.user;
-    l1.image={url,filename};
+    l1.image = { url, filename };
     await l1.save();
     req.flash("success", "Suggested outfit successfully");
     res.redirect("/home");
@@ -96,11 +96,11 @@ router.post(
     if (req.user.username !== listing.owner.username) {
       res.send("Suspecious Activity");
     }
-    let { title, gender, occasion, price,blink, desc } = req.body;
+    let { title, gender, occasion, price, blink, desc } = req.body;
     if (
       !req.body.title ||
       !req.body.desc ||
-     
+
       !req.body.price ||
       !req.body.gender ||
       !req.body.occasion ||
