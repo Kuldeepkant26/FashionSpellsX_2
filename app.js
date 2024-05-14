@@ -1,7 +1,7 @@
-if(process.env.NODE_ENV != "production"){
+if (process.env.NODE_ENV != "production") {
   require('dotenv').config();
 }
-const dbUrl=process.env.ATLASDB_URL;
+const dbUrl = process.env.ATLASDB_URL;
 const express = require("express");// requiring express
 const app = express();             //  ----storing 
 const path = require("path");
@@ -42,19 +42,19 @@ app.use(express.urlencoded({ extended: true })); //to access the data inside req
 app.use(express.static(path.join(__dirname, "/public")));
 app.engine("ejs", ejsMate);
 
-const store=  MongoStore.create({
-  mongoUrl:dbUrl,
-  crypto:{
-    secret:process.env.SECRET
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SECRET
   },
-  touchAfter:24*3600,
+  touchAfter: 24 * 3600,
 });
-store.on("error", ()=>{
-  console.log("Error in mongo Session store",err);
+store.on("error", () => {
+  console.log("Error in mongo Session store", err);
 })
 const sopt = {
   store,
-  secret:process.env.SECRET,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -90,7 +90,7 @@ app.use("/", rreviews);
 app.get("/signup", (req, res) => {
   res.render("sform.ejs");
 });
-app.post("/signup",wrapasync( async (req, res) => {
+app.post("/signup", wrapasync(async (req, res) => {
   let { username, email, password } = req.body;
   let u1 = new User({
     email: email,
@@ -116,11 +116,11 @@ app.post(
     failureMessage: "Wrong info",
   }),
   wrapasync(
-  async (req, res) => {
-    req.flash("success", "You are logedin  now");
-    res.redirect("/home");
-  }
-));
+    async (req, res) => {
+      req.flash("success", "You are logedin  now");
+      res.redirect("/home");
+    }
+  ));
 app.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) {
@@ -130,7 +130,9 @@ app.get("/logout", (req, res) => {
     res.redirect("/home");
   });
 });
+
 //$$$$$$$$$$$Cetegories$$$$$$
+
 app.get(
   "/men",
   wrapasync(async (req, res) => {
