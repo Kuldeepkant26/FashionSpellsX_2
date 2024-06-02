@@ -25,6 +25,7 @@ const { isLogedIn } = require("./utils/middlewares");
 
 main()
   .then(() => {
+
     console.log("Connected to DB");
   })
   .catch((e) => {
